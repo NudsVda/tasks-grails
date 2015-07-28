@@ -14,6 +14,8 @@ class Tasks {
     Categoria category
 
     static belongsTo = Categoria
+
+    
   
 
 }
