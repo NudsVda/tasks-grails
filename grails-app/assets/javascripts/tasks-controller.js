@@ -34,7 +34,7 @@ tasksController = function() {
 				});
 				
 				$(taskPage).find('#tblTasks tbody').on('click', '.deleteRow', 
-				function(evt) { 					
+				function(evt) { 									
 					storageEngine.delete('task', $(evt.target).data().taskId, 
 					function() {
 						$(evt.target).parents('tr').remove(); 
@@ -48,8 +48,7 @@ tasksController = function() {
 				$(taskPage).find('#tblTasks tbody').on('click', '.completedRow', 
 				function(evt) { 					
 					storageEngine.findById('task', $(evt.target).data().taskId, function(task) {
-						task.completed = 1;
-						console.log = task;
+						task.completed = 1;									
 						storageEngine.save('task', task, function() {
 							$(taskPage).find('#tblTasks tbody').empty();
 							tasksController.loadTasks();

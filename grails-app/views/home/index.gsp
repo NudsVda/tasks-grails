@@ -6,7 +6,8 @@
 	<main id="taskPage">
 		<section id="taskCreation" class="not">
 			<form id="taskForm">
-				<input type="hidden" name="id" />							
+				<input type="hidden" name="id" />															
+				<input type="hidden" name="completed" />	
 				<div>
 					<label>Tarefa</label> 
 					<input type="text" required="required" name="task" class="large" placeholder="Estudar e programar" maxlength="200" />
@@ -16,7 +17,7 @@
 				</div>
 				<div>
 					<label>Categoria</label> 
-					<select name="category">
+					<select name="category" required="required">
 						<g:each in="${categorias}">
 							<option value="${it.id}">${it.descricao}</option>						
 						</g:each>
@@ -49,6 +50,7 @@
 		</table>
 		<nav>
 			<a href="#" id="btnAddTask">Adicionar tarefa</a>
+			<a href="categoria">Gerenciar Categorias</a>
 		</nav>
 	</section>
 </main>
@@ -56,7 +58,7 @@
 	<tr id="{{= id }}">
 		<td>{{= task }}</td>
 		<td><time datetime="{{= requiredBy }}"> {{= requiredBy }}</time></td>
-		<td>{{= category }}</td>
+		<td>{{= category_desc }}</td>
 		<td>
 			<nav>
 				<a href="#" class="editRow" data-task-id="{{= id }}">Editar</a>
